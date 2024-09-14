@@ -4,9 +4,10 @@ import typescript from '@rollup/plugin-typescript';
 import babel from '@rollup/plugin-babel';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import terser from '@rollup/plugin-terser';
+import json from '@rollup/plugin-json'; // Import the JSON plugin
 
 export default {
-  input: 'components/BlogUI.tsx', // Your entry point
+  input: 'pages/index.tsx', // Your entry point
   output: [
     {
       file: 'dist/index.js',
@@ -23,6 +24,7 @@ export default {
     peerDepsExternal(),
     resolve(),
     commonjs(),
+    json(), // Add the JSON plugin here
     typescript({
       jsx: 'preserve', // Ensures TypeScript doesn't strip JSX out
     }),
