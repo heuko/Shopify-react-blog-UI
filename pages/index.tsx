@@ -2,16 +2,13 @@ import React from "react";
 import BlogUI from "../components/BlogUI";
 import ShopifyClient from "../utils/ShopifyClient";
 import { GetServerSideProps } from "next";
+import Shopify from "shopify-api-node";
 
 interface BlogPageProps {
-  posts: BlogPost[];
+  posts: Shopify.IArticle[];
 }
 
-interface BlogPost {
-  id: number;
-  title: string;
-  body_html: string;
-}
+
 
 const BlogPage: React.FC<BlogPageProps> = ({ posts }) => {
   return (
